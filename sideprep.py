@@ -14,9 +14,8 @@ class prepmigration():
         for i in delete_apps:
             os.system("rm -rf"+ " " + apps_path + "/" + i)
         for i in delete_apps:
-            print("Uninstallation of {} has been started.....".format(i))
             os.system("app-{} stop ".format(i))
-            print("{} succesfully uninstalled".format(i))
+            print("{} has been stopped".format(i))
 
     
     def stop_torrent_Clients(self,path):
@@ -27,10 +26,10 @@ class prepmigration():
         os.system("app-deluge stop")
         os.system("app-transmission stop")
         os.system("app-qbittorrent stop")
-        os.system("rm -rf www/rutorrent")
+     
         for i in delete_config:
             os.system("rm -rf"+ " " + config_path + "/" + i)
-        print("All torrent clients has been uninstalled and config files has been deleted")
+        print("All torrent clients has been stoped and config files has been deleted")
 pre = prepmigration()
 if __name__ == '__main__':
     pre.stop_docker_apps(apps_path)
