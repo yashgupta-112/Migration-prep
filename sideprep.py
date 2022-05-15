@@ -20,15 +20,11 @@ class prepmigration():
 
     
     def stop_torrent_Clients(self,path):
-        all_configs = os.listdir(path)
-        delete_config = list(set(all_configs).difference(remove_config))
         os.system("app-rtorrent stop")
         os.system("app-deluge stop")
         os.system("app-transmission stop")
         os.system("app-qbittorrent stop")
-     
-        for i in delete_config:
-            os.system("rm -rf"+ " " + config_path + "/*")
+        os.system("rm -rf"+ " " + config_path + "/*")
         print("All torrent clients has been stoped and config files has been deleted")
 pre = prepmigration()
 if __name__ == '__main__':
