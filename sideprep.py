@@ -12,14 +12,14 @@ class prepmigration():
         all_apps = os.listdir(path)
         delete_apps = list(set(all_apps).difference(remove_apps))
         for i in delete_apps:
-            os.system("rm -rf"+ " " + apps_path + "/" + i)
-        for i in delete_apps:
             os.system("app-{} stop ".format(i))
             print("{} has been stopped".format(i))
+        for i in delete_apps:
+            os.system("rm -rf"+ " " + apps_path + "/*")
+       
 
     
     def stop_torrent_Clients(self,path):
-        remove_config = ['systemd']
         all_configs = os.listdir(path)
         delete_config = list(set(all_configs).difference(remove_config))
         os.system("app-rtorrent stop")
@@ -28,7 +28,7 @@ class prepmigration():
         os.system("app-qbittorrent stop")
      
         for i in delete_config:
-            os.system("rm -rf"+ " " + config_path + "/" + i)
+            os.system("rm -rf"+ " " + config_path + "/*")
         print("All torrent clients has been stoped and config files has been deleted")
 pre = prepmigration()
 if __name__ == '__main__':
