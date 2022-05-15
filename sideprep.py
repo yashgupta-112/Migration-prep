@@ -14,8 +14,7 @@ class prepmigration():
         for i in delete_apps:
             os.system("app-{} stop ".format(i))
             print("{} has been stopped".format(i))
-        for i in delete_apps:
-            os.system("rm -rf"+ " " + apps_path + "/*")
+        os.system("rm -rf"+ " " + apps_path + "/*")
        
 
     
