@@ -20,5 +20,4 @@ class prepmigration():
 pre = prepmigration()
 if __name__ == '__main__':
     pre.stop_docker_apps(apps_path)
-   =
-  
+   
