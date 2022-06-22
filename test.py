@@ -13,7 +13,7 @@ class prepmigration():
         delete_apps = list(set(all_apps).difference(remove_apps))
         for i in delete_apps:
             os.system("app-{} upgrade ".format(i))
-            print("{} has been stopped".format(i))
+            print("{} has been upgraded".format(i))
       
        
 
